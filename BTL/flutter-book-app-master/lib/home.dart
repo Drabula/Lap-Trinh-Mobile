@@ -1,3 +1,5 @@
+import 'dart:js';
+import 'package:flutter/widgets.dart';
 import 'package:book_app/cart_screen.dart';
 import 'package:book_app/data.dart';
 import 'package:flutter/material.dart';
@@ -10,9 +12,20 @@ class Home extends StatelessWidget {
     // App bar
     final appBar = AppBar(
       elevation: .5,
-      leading: IconButton(
-        icon: Icon(Icons.menu),
-        onPressed: () {},
+      leading:
+      PopupMenuButton<String>(
+        onSelected: (value) {
+          if (value == 'logout') {
+            logout(context);
+          }
+        },
+        itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+          PopupMenuItem<String>(
+            value: 'logout',
+            child: Text('Logout'),
+          ),
+        ],
+        child: Icon(Icons.menu),
       ),
       title: Text('Design Books'),
       actions: <Widget>[
@@ -174,4 +187,7 @@ void openCartScreen(BuildContext context) {
     context,
     MaterialPageRoute(builder: (context) => CartScreen()),
   );
+}
+void logout(BuildContext context) {
+  Navigator.pushReplacementNamed(context, '/login');
 }
