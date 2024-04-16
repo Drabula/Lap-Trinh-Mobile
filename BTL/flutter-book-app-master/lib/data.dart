@@ -11,12 +11,30 @@ class Book {
   int ratingSum;
 
   Book(this.title, this.writer, this.price, this.image, this.rating, this.pages, this.ratingCount, this.ratingSum);
+  Map<String, dynamic> toMap() {
+    return {
+      'title': title,
+      'writer': writer,
+      'price': price,
+      'image': image,
+      'rating': rating,
+      'pages': pages,
+      'ratingCount': ratingCount,
+      'ratingSum': ratingSum,
+    };
+  }
 }
 class Order {
   final String id;
   final List<Book> books;
   final DateTime orderDate;
-
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'books': books.map((book) => book.toMap()).toList(),
+      'orderDate': orderDate.toIso8601String(),
+    };
+  }
   Order({required this.id, required this.books, required this.orderDate});
 }
 
