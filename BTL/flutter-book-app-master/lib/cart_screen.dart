@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:book_app/cart.dart';
 import 'package:book_app/data.dart';
@@ -99,3 +101,10 @@ class _CartScreenState extends State<CartScreen> {
   }
 }
 
+void showOrderSuccessMessage() {
+  ScaffoldMessenger.of(context as BuildContext).showSnackBar(
+    SnackBar(
+      content: Text('Đặt hàng thành công'),
+    ),
+  );
+}

@@ -24,5 +24,4 @@ class Cart {
   static void showPaymentSuccessMessage() {
 
   }
-
 }

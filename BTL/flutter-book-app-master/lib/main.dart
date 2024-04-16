@@ -6,13 +6,19 @@ import 'home.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'login_screen.dart';
+import 'package:firebase_database/firebase_database.dart';
 void main() async {
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
   runApp(new MyApp());
 }
+Future<void> initializeFirebase() async {
+  await Firebase.initializeApp();
+}
+final database = FirebaseDatabase.instance;
 class MyApp extends StatelessWidget {
 
   @override
