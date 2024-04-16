@@ -12,6 +12,13 @@ class Book {
 
   Book(this.title, this.writer, this.price, this.image, this.rating, this.pages, this.ratingCount, this.ratingSum);
 }
+class Order {
+  final String id;
+  final List<Book> books;
+  final DateTime orderDate;
+
+  Order({required this.id, required this.books, required this.orderDate});
+}
 
 final List<Book> books = [
   Book('CorelDraw untuk Tingkat Pemula Sampai Mahir', 'Jubilee Enterprise',
